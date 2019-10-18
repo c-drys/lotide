@@ -19,13 +19,16 @@ const eqArrays = function (a, b) {
   //var b = ([1, 2, 3], [3, 2, 1]);
 
   // if the length is not equal 
-  if (a.length != b.length)
+  if (a.length !== b.length) {
     return false;
-  else {
+  } else {
     // comparing each element of the array 
-    for (var i = 0; i < a.length; i++)
-      if (a[i] != b[i])
+    for (var i = 0; i < a.length; i++) {
+      if (a[i] != b[i]) {
         return false;
+      }
+    }
+      
     return true;
   }
 }
@@ -49,6 +52,7 @@ const letterPositions = function (string) {
 
 
 console.log(letterPositions("lighthouse in the house"))
+assertEqual(eqArrays(letterPositions("hello").e, [1]));
 
 
 // const results = {};
