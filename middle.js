@@ -1,61 +1,64 @@
 // Insert assertEqual Function
 
-const assertEqual = function(actual, expected) {
+const eqArrays = function(arrayA, arrayB) {
+  
+  // var a = ([1, 2, 3], [1, 2, 3]); 
+  //var b = ([1, 2, 3], [3, 2, 1]);
+   
+  // if the length is not equal 
+   if(arrayA.length !== arrayB.length) {
+    return false; 
+   }
+   // comparing each element of the array 
+    for(var i = 0; i < arrayA.length; i++) {
+    if(arrayA[i] !== arrayB[i]) {
+     return false;
+   }
+  }
+  return true; 
+};
+
+const assertArraysEqual = function(arrayA, arrayB) {
   // print this one to the console if 'actual' is same as expected
-  if (actual !== expected) {
-    console.log(`Assertion Passed: ${actual} === ${expected}`);
+  if (eqArrays(arrayA, arrayB)) {
+    console.log(`✅✅✅Assertion Passed: ${arrayA} === ${arrayB}`);
   // print this one to the console if 'actual' is not same as expected.=
   } else {
-    console.log(`Assertion Failed: ${actual} !== ${expected}`);
+    console.log(`🛑🛑🛑Assertion Failed: ${arrayA} !== ${arrayB}`);
   }
 };
 
-// Implement a function eqArrays which takes in two arrays and 
-// returns true or false, based on a perfect match
 
+    const middle = function (array) {
 
-const eqArrays = function(a, b) {
-  
- // if the length is not equal 
-  if([a.length] === [b.length]) 
-   return false; 
-  else
-  { 
-  // comparing each element of the array 
-   for(var i=0;i < a.length;i++) 
-   if(a[i]!== b[i]) 
-    return false; 
-    return true; 
-  }
-}
-
-// Implement middle which will take in an array and return the middle-most element(s) of the given array.
-
-const middle = function (array) {
-
-  let arr = array [0]
-
- if(array.length % 2 === 1){    
-   console.log(" test ",)  
-   var temp = array[(array.length-1)/2];
-   console.log(temp);
-   return (array[(array.length-1)/2]);
-
-   } else {
-     return (array[(array.length/2)]+array[(array.length/2 -1)])/2
-  }
-}
-
-// // Tests
-
-console.log(assertEqual(eqArrays(middle([1, 2, 3], [1, 2, 3]), true ))); // => true
-console.log(assertEqual(eqArrays(middle([1, 2, 3], [1, 2, 3]), true ))); // => true
-
-console.log(assertEqual(eqArrays(middle([1, 2, 3, 4, 5])))) // => [3]
-
-console.log(assertEqual(eqArrays(middle([1, 2, 3, 4])))) // => [2, 3]
-console.log(assertEqual(eqArrays(middle([1, 2, 3, 4, 5, 6])))) // => [3, 4]
-
-console.log(assertEqual(eqArrays(middle([Monday, Tuesday, Wednesday])))) // ==> [Tuesday]
-
-console.log(assertEqual(eqArrays(middle([May, June, July, August])))) // ==> [June, July]
+      let newArray = [];
+    
+    if (array.length === 1 || array.length === 2) {
+      return newArray;
+    } else if (array.length % 2 === 0) {
+      var evenArray = (array.length -1) / 2;
+      var below = Math.floor(evenArray);
+      var above = Math.ceil(evenArray);
+      // console.log(evenArray);
+      // console.log(below);
+      // console.log(above);
+      // console.log(`The indexes are ${above} and ${below}`);
+      // console.log(The elements are ${array[below]} and ${array[above]}`);
+        newArray.push(array[below]);
+        newArray.push(array[above]);
+        return newArray;
+    
+    } else { 
+      var oddArray = (array.length - 1) / 2;
+      // console.log(`Index is, ${oddArray}`);
+      // console.log(`Element is :, ${array[oddArray]}`);
+      newArray.push(array[oddArray])
+      return newArray
+    }
+    };
+    assertArraysEqual(middle([1]), []);
+    assertArraysEqual(middle([1, 2]), []);
+    assertArraysEqual(middle([1, 2, 3]), [2]);
+    assertArraysEqual(middle([1, 2, 3, 4, 5]), [3]);
+    assertArraysEqual(middle([1, 2, 3, 4]), [2, 3]);
+    assertArraysEqual(middle([1, 2, 3, 4, 5, 6]), [3, 4]);
