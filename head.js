@@ -1,16 +1,24 @@
-// insert assertEqual function
+// Insert assertEqual Function
+const assertEqual = function(actual, expected) {
+  // print this one to the console if 'actual' is same as expected
+  if (actual === expected) {
+    console.log(`Assertion Passed: ${actual} === ${expected}`);
+  // print this one to the console if 'actual' is not same as expected.=
+  } else {
+    console.log(`Assertion Failed: ${actual} !== ${expected}`);
+  }
+};
 
-var firstElement = array1.shift();
+// Implement function to return the head 
+// Declare the empty array
+// Array.shift will remove & return 1st element 
 
-console.log(array1);
-// expected output: Array [2, 3]
-
-console.log(firstElement);
-// expected output: 1
-
-assertEqual(head([5,6,7]), 5);
-assertEqual(head(["Hello", "Lighthouse
+const arr = ([])
+let head = arr.shift()
+  console.log(head); //undefined as predicted
 
 
-_.first([1, 2, 3]);
-// => [1]
+// // Test assertions
+assertEqual(arr.shift([5,6,7]), 5);
+assertEqual(arr.shift(["Hello", "Lighthouse", "Labs"]), "Hello");
+assertEqual(arr.shift(["Mon", "Tue", "Wed", "Thurs"]), "Mon")
