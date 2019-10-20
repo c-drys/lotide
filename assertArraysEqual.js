@@ -29,22 +29,6 @@ const assertArraysEqual = function(arrayA, arrayB) {
 };
 
 
-
-// Implement a function for equal array comparison
-
-// function AseqArrays(_arr1, _arr2) {
-//   if (_arr1.length !== _arr2.length) 
-//   return false;
-
-//   for (var i = 0, e = _arr1.length; i < e; i++) {
-//     if (_arr1[i] !== _arr2[i]) {
-//       return false;
-//     }
-
-//   }
-//   return true;
-// }
-
 assertArraysEqual([1, 2, 3], [1, 2, 3]);
 assertArraysEqual([1, 2, 3], [3, 2, 1]);
 assertArraysEqual([1, 2, 3], [1, 2, 3, 4]);
