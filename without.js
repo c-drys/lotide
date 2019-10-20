@@ -31,10 +31,8 @@ const assertArraysEqual = function(arrayA, arrayB) {
 // loop through the source Array
 // loop through the items to remove array
 // if source === remove break it
-// 
 // create new array array.push 
-
-// return if not equal
+// return (push) if not equal
 
 const without = function (source, remove) {
   let newArray = []
