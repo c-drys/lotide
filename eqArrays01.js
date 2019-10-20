@@ -30,13 +30,13 @@ const eqArrays = function(arrayA, arrayB) {
   return true; 
 };
 
-  // comparing each element of the array 
-   for(var i=0;i<a.length;i++) 
-   if(a[i]!=b[i]) 
-    return false; 
-    return true; 
-  }
-}
+//   // comparing each element of the array 
+//    for(var i=0;i<a.length;i++) 
+//    if(a[i]!=b[i]) 
+//     return false; 
+//     return true; 
+//   }
+// }
 
 assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true ); // => true
 
