@@ -51,7 +51,7 @@ if (remove.length - 1 === x) {
   return newArray;
 };
 
-
+  
   const words = ["hello", "world", "lighthouse"];
   without(["hello", "world", "lighthouse"], ["lighthouse"]); // no need to capture return value for this test case
   // Make sure the original array was not altered by the without function
