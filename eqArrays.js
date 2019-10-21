@@ -1,21 +1,22 @@
-// Insert assertEqual Function
-const assertEqual = function(actual, expected) {
-  // print this one to the console if 'actual' is same as expected
-  if (actual === expected) {
-    console.log(:white_tick::white_tick::white_tick:`Assertion Passed: ${actual} === ${expected}`);
-  // print this one to the console if 'actual' is not same as expected.=
-  } else {
-    console.log(`Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
+const assertEqual = require('./assertEqual');
 
 // Implement a function eqArrays
 
-function eqArrays(_arr1, _arr2) {
+function eqArrays(actual, expected) {
 
-  if (!Array.isArray(_arr1) || ! Array.isArray(_arr2) || _arr1.length !== _arr2.length)
-    return false;
+    // if the length is not equal 
+    if(actual.length !== expected.length) {
+      return false; 
+     }
+     // comparing each element of the array 
+      for(var i = 0; i < actual.length; i++) {
+      if(actual[i] !== expected[i]) {
+       return false;
+     }
+    }
+    return true; 
+  };
 
-    console.log("im confused", eqArrays)
 
-};
+
+module.exports = eqArrays;
