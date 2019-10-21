@@ -1,3 +1,4 @@
+const assertEqual = require('./assertEqual');
 
 // Implement function to return the head 
 // Declare the empty array
