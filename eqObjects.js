@@ -1,15 +1,22 @@
 // Insert assertEqual Function
 
+const assertEqual = function(actual, expected) {
+  // print this one to the console if 'actual' is same as expected
+  if (actual === expected) {
+    console.log(`✅✅✅Assertion Passed: ${actual} === ${expected}`);
+  // print this one to the console if 'actual' is not same as expected.=
+  } else {
+    console.log(`🛑🛑🛑Assertion Failed: ${actual} !== ${expected}`);
+  }
+};
+
+//Insert eqArrays Function
+
 const eqArrays = function(arrayA, arrayB) {
   
-  // var a = ([1, 2, 3], [1, 2, 3]); 
-  //var b = ([1, 2, 3], [3, 2, 1]);
-   
-  // if the length is not equal 
    if(arrayA.length !== arrayB.length) {
     return false; 
    }
-   // comparing each element of the array 
     for(var i = 0; i < arrayA.length; i++) {
     if(arrayA[i] !== arrayB[i]) {
      return false;
@@ -18,54 +25,50 @@ const eqArrays = function(arrayA, arrayB) {
   return true; 
 };
 
-const assertArraysEqual = function(arrayA, arrayB) {
-  // print this one to the console if 'actual' is same as expected
-  if (eqArrays(arrayA, arrayB)) {
-    console.log(`✅✅✅Assertion Passed: ${arrayA} === ${arrayB}`);
-  // print this one to the console if 'actual' is not same as expected.=
-  } else {
-    console.log(`🛑🛑🛑Assertion Failed: ${arrayA} !== ${arrayB}`);
-  }
-};
-
-// Returns true if both objects have identical keys with identical values.
-// Otherwise you get back a big fat false!
+// Insert eqObjects
 
 const eqObjects = function(object1, object2) {
-  if (object1.keys(object1).length !== object1.keys(object2).length){
+  if (Object.keys(object1).length !== Object.keys(object2).length) {
     return false;
   }
 
-  for (key of object1.keys(object1)){
-    if (array.isArray(object1[key]) && array.isArray(object2[key])) {
-      return eqArrays(object1[key], object2[key]);
-    
-    } else { 
-      if (object1[key] !== object2[key] {
-      }
+  for(const key in object1) {
+    if (Array.isArray(object1[key]) && (Array.isArray(object2[key]))) {
+      console.log(object1[key]);
+      console.log(object2[key]);
+      if (eqArrays(object1[key], object2[key]) === false) { //eqArrays called here.
         return false;
       }
+    } else if (object1[key] !== object2[key]) {
+      return false;
     }
   }
-  return true;
-  }
+return true;
+};
 
-// Tests
-const ab = {a: "28", b: "32"};
-const ba = {b: "32", a: "28"};
-console.log(assertEqual(eqObjects(ab, ba))); 
+// if (object1[key] !== object2[key] === false) {
+//   return false // False/ False will continue iterating through, check the whole 
+// }
+// // Tests
+const ab = {a: "11", b: "21"};
+const ba = {b: "21", a: "11"};
+assertEqual(eqObjects(ab, ba), true); 
 
 const abc = { a: "1", b: "2", c: "3" };
-console.log(assertEqual(eqObjects(ab, abc))); 
+assertEqual(eqObjects(ab, abc), false); 
 
-let objects1 = {
-  key1: "monday",
-  key2: "tuesday",
-  key3: "wednesday"
-};
 
-let objects2 = {
-  key1: "monday",
-  key2: "tuesday",
-  key3: "wednesday"
-};
+const cd = { c: "1", d: ["2", 3] };
+const dc = { d: ["2", 3], c: "1" };
+assertEqual(eqObjects(cd, dc), true)
+
+const cd2 = { c: "1", d: ["2", 3, 4]}
+assertEqual(eqObjects(cd, cd2), false)
+
+
+// const lm = { l: "11", m: "22" };
+// const ml = { m: "22", l: "11" };
+// eqObjects(ab, ba); // => true
+
+// const def = { d: "11", e: "22", f: "33" };
+// eqObjects(de, def); // => false
