@@ -1,29 +1,5 @@
-// Insert assertEqual Function
-
-const assertEqual = function(actual, expected) {
-  // print this one to the console if 'actual' is same as expected
-  if (actual === expected) {
-    console.log(`✅✅✅Assertion Passed: ${actual} === ${expected}`);
-  // print this one to the console if 'actual' is not same as expected.=
-  } else {
-    console.log(`🛑🛑🛑Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
-
-//Insert eqArrays Function
-
-const eqArrays = function(arrayA, arrayB) {
-  
-   if(arrayA.length !== arrayB.length) {
-    return false; 
-   }
-    for(var i = 0; i < arrayA.length; i++) {
-    if(arrayA[i] !== arrayB[i]) {
-     return false;
-   }
-  }
-  return true; 
-};
+const assertEqual = require('./assertEqual');
+const eqArrays = require('./eqArrays');
 
 // Insert eqObjects
 
@@ -72,3 +48,5 @@ assertEqual(eqObjects(cd, cd2), false)
 
 // const def = { d: "11", e: "22", f: "33" };
 // eqObjects(de, def); // => false
+
+module.exports = eqObjects;
