@@ -28,4 +28,7 @@ const map = function(array, callback) {
 }
 console.log(map(words, printFirst))
 
+module.exports = map;
+
+
 
